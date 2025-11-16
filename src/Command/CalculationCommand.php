@@ -51,7 +51,7 @@ class CalculationCommand extends Command
             $file = sprintf("%s/%s", $this->source, $input->getOption(Operation::OPT_FILE));
             $this->operationService->run($action, $file);
             $result = Command::SUCCESS;
-        } catch (Throwable $e) {
+        } catch (Throwable) {
             $result = Command::FAILURE;
         }
 
