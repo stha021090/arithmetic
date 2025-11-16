@@ -1,5 +1,6 @@
 ###> symfony/framework-bundle ###
-/.idea
+/.idea/
+/public/data/result/*
 /var/
 /vendor/
 /.env.local
