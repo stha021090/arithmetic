@@ -5,7 +5,8 @@ services:
     autowire: true
     autoconfigure: true
     bind:
-      $source: '%kernel.project_dir%/public/data/source'
+      $resultDir: '%kernel.project_dir%/public/data/result'
+      $sourceDir: '%kernel.project_dir%/public/data/source'
       $resultFile: '%kernel.project_dir%/public/data/result/result.csv'
       $logFile: '%kernel.project_dir%/public/data/result/log.txt'
 

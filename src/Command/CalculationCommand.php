@@ -17,7 +17,7 @@ use Throwable;
 class CalculationCommand extends Command
 {
     public function __construct(
-        private readonly string $source,
+        private readonly string $sourceDir,
         private readonly OperationService $operationService,
     ) {
         parent::__construct();
@@ -48,7 +48,7 @@ class CalculationCommand extends Command
         try {
             $input->validate();
             $action = Operation::from($input->getOption(Operation::OPT_ACTION));
-            $file = sprintf("%s/%s", $this->source, $input->getOption(Operation::OPT_FILE));
+            $file = sprintf("%s/%s", $this->sourceDir, $input->getOption(Operation::OPT_FILE));
             $this->operationService->run($action, $file);
             $result = Command::SUCCESS;
         } catch (Throwable) {

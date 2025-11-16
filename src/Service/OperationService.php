@@ -11,6 +11,7 @@ use Throwable;
 readonly class OperationService
 {
     public function __construct(
+        private string $resultDir,
         private string $resultFile,
         private string $logFile,
     ) {
@@ -87,6 +88,10 @@ readonly class OperationService
      */
     private function prepare(string $file): void
     {
+        if (!file_exists($this->resultDir) && !mkdir($this->resultDir, 0777, true) && !is_dir($this->resultDir)) {
+            throw new ErrorException(sprintf("Failed to create directory '%s'", $this->resultDir));
+        }
+
         if (file_exists($this->logFile)) {
             unlink($this->logFile);
         }
