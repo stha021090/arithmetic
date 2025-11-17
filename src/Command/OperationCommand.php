@@ -13,8 +13,8 @@ use Symfony\Component\Console\Input\InputOption as IO;
 use Symfony\Component\Console\Output\OutputInterface as Output;
 use Throwable;
 
-#[AsCommand(name: "app:calculate", aliases: ["app:calc"])]
-class CalculationCommand extends Command
+#[AsCommand(name: "app:operation")]
+class OperationCommand extends Command
 {
     public function __construct(
         private readonly string $sourceDir,
